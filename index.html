@@ -5,41 +5,88 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Crate Drop Collective | Welcome</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              ink: '#14161C',
+              ink2: '#1F222B',
+              paper: '#F7F8FA',
+              steel: '#6B7280',
+              brandblue: '#2C5FAE',
+              brandred: '#E13239',
+              brandgold: '#FFC72C'
+            },
+            fontFamily: {
+              display: ['"Rajdhani"', 'sans-serif'],
+              body: ['"Poppins"', 'sans-serif'],
+              mono: ['"Space Mono"', 'monospace']
+            }
+          }
+        }
+      }
+    </script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=Poppins:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
     <style>
-        .glow-blue:hover { box-shadow: 0 0 20px rgba(37, 99, 235, 0.2); }
+        body { font-family: 'Poppins', sans-serif; }
+
+        .panel-cut { clip-path: polygon(0 14px, 14px 0, 100% 0, 100% calc(100% - 14px), calc(100% - 14px) 100%, 0 100%); }
+        .panel-cut-sm { clip-path: polygon(0 8px, 8px 0, 100% 0, 100% calc(100% - 8px), calc(100% - 8px) 100%, 0 100%); }
+
+        .tag-slant { transform: skewX(-12deg); display: inline-block; }
+        .tag-slant > span { display: inline-block; transform: skewX(12deg); }
+
+        .signal-stripe { display: flex; height: 5px; width: 100%; }
+        .signal-stripe > div { flex: 1; transform: skewX(-25deg); margin: 0 -3px; }
     </style>
 </head>
-<body class="bg-[#f9fafb] text-slate-900 font-sans min-h-screen flex flex-col">
+<body class="bg-paper text-ink font-body min-h-screen flex flex-col">
+
+    <!-- Tri-color signature strip -->
+    <div class="signal-stripe">
+        <div class="bg-brandblue"></div>
+        <div class="bg-brandred"></div>
+        <div class="bg-brandgold"></div>
+    </div>
 
     <nav class="p-6">
         <div class="container mx-auto flex justify-center">
             <div class="flex flex-col items-center">
-                <span class="text-3xl md:text-4xl font-black tracking-tighter leading-none italic">CRATE DROP</span>
-                <span class="text-xs font-bold text-blue-600 tracking-[0.4em] uppercase ml-1">Collective</span>
+                <span class="text-3xl md:text-4xl font-display font-bold tracking-tight leading-none uppercase">
+                    <span class="text-brandblue">CRATE</span><span class="text-brandred">DROP</span><span class="text-brandgold">COLLECTIVE</span>
+                </span>
             </div>
         </div>
     </nav>
 
     <main class="flex-1 flex items-center justify-center p-4 md:p-8">
         <div class="max-w-5xl w-full">
-            
+
             <div class="text-center mb-12">
-                <h2 class="text-slate-400 font-black uppercase text-[10px] md:text-xs tracking-[0.3em] mb-2">Choose your destination</h2>
-                <div class="h-1 w-12 bg-blue-600 mx-auto rounded-full"></div>
+                <p class="font-mono text-[10px] md:text-xs text-steel uppercase tracking-[0.3em] mb-3">Choose Your Destination</p>
+                <div class="h-[3px] w-16 mx-auto signal-stripe">
+                    <div class="bg-brandblue"></div><div class="bg-brandred"></div><div class="bg-brandgold"></div>
+                </div>
             </div>
 
             <div class="grid md:grid-cols-2 gap-8">
-                
-                <a href="/preorder" class="group relative overflow-hidden bg-black rounded-3xl p-8 md:p-12 transition-all duration-500 hover:scale-[1.02] active:scale-95 shadow-2xl flex flex-col justify-between min-h-[350px]">
-                    <div class="absolute -right-8 -top-8 text-white/5 text-9xl font-black italic select-none group-hover:text-blue-600/10 transition-colors">PRE</div>
-                    
+
+                <a href="/preorder" class="group relative overflow-hidden bg-ink panel-cut p-8 md:p-12 transition-all duration-500 hover:scale-[1.02] active:scale-95 shadow-2xl flex flex-col justify-between min-h-[350px]">
+                    <div class="absolute -right-8 -top-8 text-white/5 text-9xl font-display font-black uppercase select-none group-hover:text-brandgold/10 transition-colors">PRE</div>
+                    <div class="absolute -right-10 -bottom-10 w-40 h-40 border-8 border-brandblue/10 rotate-12 hidden md:block"></div>
+
                     <div class="relative z-10">
-                        <div class="w-14 h-14 bg-blue-600 rounded-2xl flex items-center justify-center mb-6 transform group-hover:rotate-12 transition-transform">
+                        <div class="tag-slant bg-brandgold mb-6 inline-block">
+                            <span class="font-mono text-[9px] font-bold text-ink uppercase tracking-widest px-2 py-1">Live Allocation</span>
+                        </div>
+                        <div class="w-14 h-14 bg-brandred rounded-2xl flex items-center justify-center mb-6 transform group-hover:rotate-12 transition-transform">
                             <i class="fas fa-clock text-white text-2xl"></i>
                         </div>
-                        <h3 class="text-3xl font-black text-white uppercase tracking-tighter mb-4">
-                            Pre-Order <br><span class="text-blue-500">Drops</span>
+                        <h3 class="text-3xl font-display font-bold text-white uppercase tracking-tight mb-4">
+                            Pre-Order <br><span class="text-brandgold">Drops</span>
                         </h3>
                         <p class="text-gray-400 text-sm font-medium leading-relaxed max-w-[240px]">
                             Secure upcoming releases and exclusive sets before they hit the shelves.
@@ -47,38 +94,42 @@
                     </div>
 
                     <div class="relative z-10 mt-8 flex items-center text-white text-xs font-black uppercase tracking-widest">
-                        Enter Shop <i class="fas fa-arrow-right ml-2 group-hover:translate-x-2 transition-transform"></i>
+                        Enter Shop <i class="fas fa-arrow-right ml-2 text-brandgold group-hover:translate-x-2 transition-transform"></i>
                     </div>
                 </a>
 
-                <a href="/products" class="group relative overflow-hidden bg-white border border-gray-200 rounded-3xl p-8 md:p-12 transition-all duration-500 hover:scale-[1.02] active:scale-95 shadow-xl hover:shadow-2xl flex flex-col justify-between min-h-[350px]">
-                    <div class="absolute -right-8 -top-8 text-slate-100 text-9xl font-black italic select-none group-hover:text-slate-200 transition-colors">LIVE</div>
+                <a href="/products" class="group relative overflow-hidden bg-white border border-gray-200 panel-cut p-8 md:p-12 transition-all duration-500 hover:scale-[1.02] active:scale-95 shadow-xl hover:shadow-2xl flex flex-col justify-between min-h-[350px]">
+                    <div class="absolute -right-8 -top-8 text-gray-100 text-9xl font-display font-black uppercase select-none group-hover:text-gray-200 transition-colors">LIVE</div>
+                    <div class="absolute -right-10 -bottom-10 w-40 h-40 border-8 border-brandred/10 -rotate-12 hidden md:block"></div>
 
                     <div class="relative z-10">
-                        <div class="w-14 h-14 bg-slate-900 rounded-2xl flex items-center justify-center mb-6 transform group-hover:-rotate-12 transition-transform">
+                        <div class="tag-slant bg-brandred mb-6 inline-block">
+                            <span class="font-mono text-[9px] font-bold text-white uppercase tracking-widest px-2 py-1">Ready Stock</span>
+                        </div>
+                        <div class="w-14 h-14 bg-brandblue rounded-2xl flex items-center justify-center mb-6 transform group-hover:-rotate-12 transition-transform">
                             <i class="fas fa-box-open text-white text-2xl"></i>
                         </div>
-                        <h3 class="text-3xl font-black text-slate-900 uppercase tracking-tighter mb-4">
-                            On-Hand <br><span class="text-blue-600">Stock</span>
+                        <h3 class="text-3xl font-display font-bold text-ink uppercase tracking-tight mb-4">
+                            On-Hand <br><span class="text-brandred">Stock</span>
                         </h3>
-                        <p class="text-slate-500 text-sm font-medium leading-relaxed max-w-[240px]">
+                        <p class="text-steel text-sm font-medium leading-relaxed max-w-[240px]">
                             Ready to ship immediately. Browse our current inventory of sealed products.
                         </p>
                     </div>
 
-                    <div class="relative z-10 mt-8 flex items-center text-slate-900 text-xs font-black uppercase tracking-widest">
-                        Enter Shop <i class="fas fa-arrow-right ml-2 group-hover:translate-x-2 transition-transform"></i>
+                    <div class="relative z-10 mt-8 flex items-center text-ink text-xs font-black uppercase tracking-widest">
+                        Enter Shop <i class="fas fa-arrow-right ml-2 text-brandred group-hover:translate-x-2 transition-transform"></i>
                     </div>
                 </a>
 
             </div>
 
             <div class="mt-16 text-center">
-                <div class="flex justify-center space-x-6 mb-4 text-slate-400">
-                    <a href="https://facebook.com/cratedropcollective" class="hover:text-blue-600 transition-colors"><i class="fab fa-facebook-messenger text-xl"></i></a>
-                    <a href="#" class="hover:text-blue-600 transition-colors"><i class="fab fa-instagram text-xl"></i></a>
+                <div class="flex justify-center space-x-6 mb-4 text-steel">
+                    <a href="https://facebook.com/cratedropcollective" class="hover:text-brandred transition-colors"><i class="fab fa-facebook-messenger text-xl"></i></a>
+                    <a href="#" class="hover:text-brandred transition-colors"><i class="fab fa-instagram text-xl"></i></a>
                 </div>
-                <p class="text-[9px] font-bold text-slate-400 uppercase tracking-[0.2em]">© 2026 Crate Drop Collective</p>
+                <p class="text-[9px] font-mono font-bold text-steel uppercase tracking-[0.2em]">© 2026 Crate Drop Collective</p>
             </div>
         </div>
     </main>
